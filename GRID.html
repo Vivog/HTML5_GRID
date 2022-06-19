@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GRID_EX</title>
+    <style type="text/css">
+    #div1 {
+        display: grid;
+        grid-template-columns: 1fr 5fr 1fr 1fr;
+        grid-template-rows: repeat(10, 2fr);
+        grid-row-gap: 10px;
+        grid-column-gap: 10px;
+        /*одновременное задача значений размеров и количества строк и столбцов таблицы*/
+        /*grid-template: repeat(10, 2fr)/repeat(3, 2fr);*/
+        grid-auto-flow: column;
+    }
+    #div2 {
+        height: 300px;
+        display: grid;
+    /*    Сразу графическое отображение размещения на всей таблице с указанием размеров строк и столбцов*/
+        grid-template: "div2_1 div2_1 div2_1 div2_1 div2_1" 1fr
+                       "div2_2 div2_3 div2_3 div2_3 div2_4" 1fr
+                       "div2_2 div2_3 div2_3 div2_3 div2_4" 1fr
+                       "div2_2 div2_3 div2_3 div2_3 div2_4" 1fr
+                       "div2_5 div2_5 div2_5 div2_5 div2_5" 1fr
+                        / 1fr   1fr    1fr     1fr     1fr;
+        justify-content: center;
+        align-content: center;
+        /*выравнивание элементов внутри ячек по горизонтали и вертикали соответственно*/
+        /*justify-items: center;*/
+        /*align-items: center;*/
+    }
+    #div2_1 { text-align: center; background: orangered; grid-area: div2_1}
+    #div2_2 { text-align: center; background: green; grid-area: div2_2}
+    #div2_3 { text-align: center; background-image: url("res/buttonIcon/addUser.png"); grid-area: div2_3}
+    #div2_4 { text-align: center; background: blue; grid-area: div2_4}
+    #div2_5 { text-align: center; background: mediumvioletred; grid-area: div2_5}
+    </style>
+</head>
+<body style="background: cornflowerblue">
+<div id="div1">
+<!--    header-->
+    <div style="text-align: center; background: yellow; grid-row: 1; grid-column: 1/ span 5">1</div>
+<!--    end header-->
+<!--    body-->
+    <div style="text-align: center; background: blue; grid-row: 2/ span 2; grid-column: 1">2</div>
+    <div style="text-align: center; background: crimson; grid-row: 2/ span 2; grid-column: 2/ span 2">3</div>
+    <div style="text-align: center; background: fuchsia; grid-row: 2/ span 2; grid-column: 4">4</div>
+<!--    end body-->
+<!--    footer-->
+    <div style="text-align: center; background: green; grid-row: 4; grid-column: 1/5">5</div>
+<!--    end footer-->
+</div>
+    <div id="div2">
+        <div id="div2_1">1</div>
+        <div id="div2_2">2</div>
+        <div id="div2_3">3</div>
+        <div id="div2_4">4</div>
+        <div id="div2_5">5</div>
+    </div>
+</body>
+</html>
